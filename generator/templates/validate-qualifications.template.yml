@@ -1,0 +1,92 @@
+name: ✅ Validate Qualifications
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+# ─────────────────────────────────────────────────────────────────
+# TODO: Customize the qualification checks below to match the
+# specific requirements from the job description for:
+#   Role: ${JOB_TITLE}
+#   Company: ${COMPANY}
+#
+# Each check should:
+#   1. Echo the requirement
+#   2. Echo your evidence
+#   3. Set a pass/fail env variable
+#
+# See the existing azure-gbb-app-mod-application repo for examples.
+# ─────────────────────────────────────────────────────────────────
+
+jobs:
+  validate-qualifications:
+    name: ✅ Validate Qualifications
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: "Check 1: Years of experience"
+        run: |
+          echo "┌─────────────────────────────────────────────────────────────┐"
+          echo "│  REQUIREMENT: Relevant years of experience                  │"
+          echo "├─────────────────────────────────────────────────────────────┤"
+          echo "│  EVIDENCE:                                                 │"
+          echo "│  • ${YEARS_MS} years at Microsoft as ${CURRENT_ROLE}       │"
+          echo "│  • ${YEARS_INDUSTRY} years in technology industry           │"
+          echo "│  ✅ PASS                                                   │"
+          echo "└─────────────────────────────────────────────────────────────┘"
+          echo "CHECK1=PASS" >> "$$GITHUB_ENV"
+
+      - name: "Check 2: Azure platform expertise"
+        run: |
+          echo "┌─────────────────────────────────────────────────────────────┐"
+          echo "│  REQUIREMENT: Azure platform expertise                     │"
+          echo "├─────────────────────────────────────────────────────────────┤"
+          echo "│  EVIDENCE:                                                 │"
+          echo "│  • Azure Solutions Architect Expert certified              │"
+          echo "│  • AKS, Container Apps, Functions, App Service expertise   │"
+          echo "│  • ${REPOS_COUNT} GitHub repos with cloud-native code      │"
+          echo "│  ✅ PASS                                                   │"
+          echo "└─────────────────────────────────────────────────────────────┘"
+          echo "CHECK2=PASS" >> "$$GITHUB_ENV"
+
+      - name: "Check 3: Enterprise engagement experience"
+        run: |
+          echo "┌─────────────────────────────────────────────────────────────┐"
+          echo "│  REQUIREMENT: Enterprise customer engagement               │"
+          echo "├─────────────────────────────────────────────────────────────┤"
+          echo "│  EVIDENCE:                                                 │"
+          echo "│  • CXO-level engagement across 8+ industry verticals      │"
+          echo "│  • Featured Speaker at AI Tour Toronto                     │"
+          echo "│  • Published thought leader on Medium and LinkedIn         │"
+          echo "│  ✅ PASS                                                   │"
+          echo "└─────────────────────────────────────────────────────────────┘"
+          echo "CHECK3=PASS" >> "$$GITHUB_ENV"
+
+      # TODO: Add more checks matching the specific job requirements
+      # See the job description for ${JOB_TITLE} at ${COMPANY}
+
+      - name: "📊 Final Summary"
+        run: |
+          echo ""
+          echo "╔═════════════════════════════════════════════════════════════╗"
+          echo "║                                                           ║"
+          echo "║    QUALIFICATION VALIDATION — FINAL RESULTS               ║"
+          echo "║                                                           ║"
+          echo "║    Role: ${JOB_TITLE}                                     ║"
+          echo "║    Candidate: ${NAME}                                     ║"
+          echo "║                                                           ║"
+          echo "╠═════════════════════════════════════════════════════════════╣"
+          echo "║                                                           ║"
+          echo "║    ✅ Check 1: Years of experience            PASS         ║"
+          echo "║    ✅ Check 2: Azure platform expertise       PASS         ║"
+          echo "║    ✅ Check 3: Enterprise engagement          PASS         ║"
+          echo "║                                                           ║"
+          echo "║    RESULT: 3/3 PASSED ✅                                  ║"
+          echo "║    (TODO: Add more checks from job description)           ║"
+          echo "║                                                           ║"
+          echo "╚═════════════════════════════════════════════════════════════╝"

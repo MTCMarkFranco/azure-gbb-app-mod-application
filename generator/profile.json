@@ -1,0 +1,47 @@
+{
+    "name": "Mark Franco",
+    "location": "Toronto, Ontario, Canada",
+    "linkedin_url": "https://www.linkedin.com/in/codecentre/",
+    "linkedin_handle": "linkedin.com/in/codecentre",
+    "github_url": "https://github.com/MTCMarkFranco",
+    "github_handle": "github.com/MTCMarkFranco",
+    "github_user": "MTCMarkFranco",
+    "medium_url": "https://medium.com/@codecentre76",
+    "medium_handle": "medium.com/@codecentre76",
+    "github_repos_count": "127+",
+    "years_at_microsoft": "19",
+    "years_in_industry": "32+",
+    "current_role": "Principal Solution Engineer",
+    "current_org": "Microsoft Innovation Hub",
+    "education_school": "Sheridan College",
+    "education_program": "Software Engineering",
+    "education_years": "1994 - 1998",
+    "certifications": [
+        "Azure Solutions Architect Expert",
+        "AZ-300",
+        "AZ-301",
+        "MCSA Cloud Platform",
+        "Exam 532",
+        "Exam 534",
+        "Insight Selling"
+    ],
+    "publications": [
+        "Supercharge GitHub Copilot with Context7",
+        "Build Production Grade AI Solutions",
+        "Leave the AI; Take the Engineering",
+        "Why Chat Completion Isn't Dead",
+        "Why Your Python Stream Breaks Behind Microsoft's APIM",
+        "Can a Machine Think the Same Way Twice?"
+    ],
+    "industry_verticals": [
+        "Financial Services & Capital Markets",
+        "Insurance",
+        "Energy & Utilities",
+        "Manufacturing & Supply Chain",
+        "Government & Public Sector",
+        "Transportation & Aviation",
+        "Telecommunications",
+        "Technology & Software",
+        "Non-Profit"
+    ]
+}
