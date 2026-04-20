@@ -117,7 +117,7 @@ Lead Architect and strategic technical advisor within Microsoft's Americas Innov
 
 | Domain | Technologies |
 |--------|-------------|
-| **Container & Orchestration** | AKS, Azure Red Hat OpenShift (ARO), Azure Container Apps (ACA), Docker, Helm |
+| **Container & Orchestration** | AKS, Azure Red Hat, Azure Container Apps (ACA), Docker, Helm |
 | **App Platforms** | Azure App Service, Azure Functions, Azure Static Web Apps |
 | **AI/ML Platforms** | Azure AI Foundry, Azure OpenAI (GPT-4o), Azure AI Search, Azure ML |
 | **Agentic AI** | Multi-agent orchestration, MCP Protocol, Semantic Kernel, AutoGen, LangChain, LangGraph |
