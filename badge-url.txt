@@ -1,0 +1,1 @@
+https://img.shields.io/badge/qualifications-9%2F9%20passed-brightgreen?style=for-the-badge&logo=microsoftazure&logoColor=white

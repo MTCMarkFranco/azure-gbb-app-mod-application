@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark Franco — GitHub AI GTM Lead Application</title>
+  <meta name="description" content="Enterprise AI strategist and hands-on technical leader. 19 years at Microsoft, 32+ years in tech. Application for GitHub AI GTM Lead.">
+  <style>
+    /* ───────────────── Reset & Base ───────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #0d1117;
+      --card-bg: #161b22;
+      --light: #f0f6fc;
+      --blue: #58a6ff;
+      --green: #3fb950;
+      --orange: #f78166;
+      --border: #30363d;
+      --muted: #8b949e;
+      --body-bg: #f6f8fa;
+      --white: #ffffff;
+      --text: #24292f;
+      --text-secondary: #57606a;
+      --card-shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-stack);
+      background: var(--body-bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--blue); text-decoration: none; transition: opacity .2s; }
+    a:hover { opacity: .85; text-decoration: underline; }
+
+    img { max-width: 100%; }
+
+    /* ───────────────── Navigation ───────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      padding: .6rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      backdrop-filter: saturate(180%) blur(12px);
+    }
+
+    .nav-brand {
+      color: var(--light);
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+
+    .nav-brand svg { fill: var(--light); }
+
+    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--light); text-decoration: none; }
+
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer; padding: .25rem;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 2px; background: var(--light);
+      margin: 4px 0; transition: transform .3s;
+    }
+
+    /* ───────────────── Hero ───────────────── */
+    .hero {
+      background: var(--dark);
+      color: var(--light);
+      padding: 7rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: .25rem;
+    }
+
+    .hero .subtitle {
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+
+    .hero .location {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-links {
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-links a {
+      display: inline-flex; align-items: center; gap: .4rem;
+      color: var(--blue);
+      font-size: .9rem;
+      padding: .4rem .8rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: background .2s, border-color .2s;
+    }
+    .hero-links a:hover {
+      background: rgba(88,166,255,.1);
+      border-color: var(--blue);
+      text-decoration: none;
+    }
+
+    .hero-actions {
+      display: flex; justify-content: center; gap: .75rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .55rem 1.1rem;
+      border-radius: 6px;
+      font-size: .875rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--dark);
+    }
+    .btn-primary:hover { background: #46c258; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--light);
+      border-color: var(--border);
+    }
+    .btn-outline:hover { border-color: var(--muted); background: rgba(255,255,255,.04); }
+
+    .badge-row { margin-top: .75rem; }
+    .badge-row img { height: 20px; vertical-align: middle; }
+
+    .tagline {
+      font-family: var(--font-mono);
+      color: var(--green);
+      font-size: .9rem;
+      margin-top: 1.25rem;
+      min-height: 1.4em;
+    }
+
+    .tagline .cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--green);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink .8s step-end infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ───────────────── Container ───────────────── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ───────────────── Sections ───────────────── */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+
+    .section-title .icon {
+      font-size: 1.25rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: .95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #d0d7de;
+      margin: 0;
+    }
+
+    /* ───────────────── Fade-in animation ───────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ───────────────── Summary ───────────────── */
+    .summary-text {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      max-width: 740px;
+    }
+
+    /* ───────────────── Metric Cards ───────────────── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .metric-card {
+      background: var(--white);
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .metric-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .metric-label {
+      font-size: .8rem;
+      color: var(--text-secondary);
+      margin-top: .25rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-weight: 600;
+    }
+
+    .metric-card:nth-child(1) .metric-value { color: var(--blue); }
+    .metric-card:nth-child(2) .metric-value { color: var(--green); }
+    .metric-card:nth-child(3) .metric-value { color: var(--orange); }
+    .metric-card:nth-child(4) .metric-value { color: #bc8cff; }
+    .metric-card:nth-child(5) .metric-value { color: var(--green); }
+
+    /* ───────────────── Experience ───────────────── */
+    .experience-header {
+      display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+      margin-bottom: .5rem;
+    }
+
+    .exp-company {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .exp-duration {
+      color: var(--text-secondary);
+      font-size: .875rem;
+    }
+
+    .exp-role {
+      color: var(--text-secondary);
+      font-size: .95rem;
+      margin-bottom: 1rem;
+    }
+
+    .themes-list { list-style: none; }
+
+    .theme-item {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin-bottom: .5rem;
+      background: var(--white);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .theme-item:hover { box-shadow: var(--card-shadow); }
+
+    .theme-toggle {
+      width: 100%;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .75rem 1rem;
+      font-family: var(--font-stack);
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+    }
+
+    .theme-toggle .chevron {
+      transition: transform .3s;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .theme-toggle[aria-expanded="true"] .chevron {
+      transform: rotate(90deg);
+    }
+
+    .theme-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease-out, padding .35s ease-out;
+      padding: 0 1rem;
+      color: var(--text-secondary);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .theme-detail.open {
+      max-height: 300px;
+      padding: 0 1rem .75rem;
+    }
+
+    /* ───────────────── Skills ───────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-group h3 {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-secondary);
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+    .tag {
+      display: inline-block;
+      padding: .2rem .6rem;
+      border-radius: 20px;
+      font-size: .78rem;
+      font-weight: 500;
+      border: 1px solid #d0d7de;
+      background: var(--white);
+      color: var(--text);
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+    .tag:hover {
+      transform: translateY(-1px);
+      border-color: var(--blue);
+      background: rgba(88,166,255,.06);
+    }
+
+    .tag.accent-blue { border-color: var(--blue); color: var(--blue); background: rgba(88,166,255,.08); }
+    .tag.accent-green { border-color: var(--green); color: #27a03e; background: rgba(63,185,80,.08); }
+    .tag.accent-orange { border-color: var(--orange); color: #d4613e; background: rgba(247,129,102,.08); }
+    .tag.accent-purple { border-color: #bc8cff; color: #a371f7; background: rgba(188,140,255,.08); }
+
+    /* ───────────────── Project Cards ───────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .project-card h3 {
+      font-size: .95rem;
+      display: flex; align-items: center; gap: .4rem;
+      margin-bottom: .35rem;
+    }
+    .project-card h3 a { color: var(--blue); }
+
+    .project-card .repo-icon { color: var(--muted); font-size: .85rem; }
+
+    .project-desc {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      flex: 1;
+      margin-bottom: .75rem;
+      line-height: 1.5;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+
+    .project-tag {
+      font-size: .72rem;
+      padding: .15rem .5rem;
+      border-radius: 20px;
+      background: rgba(88,166,255,.08);
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* ───────────────── Outcomes Table ───────────────── */
+    .outcomes-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .outcomes-table th {
+      background: var(--body-bg);
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-align: left;
+      padding: .6rem 1rem;
+      border-bottom: 1px solid #d0d7de;
+    }
+
+    .outcomes-table td {
+      padding: .65rem 1rem;
+      font-size: .9rem;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+
+    .outcomes-table tr:last-child td { border-bottom: none; }
+
+    .outcomes-table tr:hover td { background: rgba(88,166,255,.03); }
+
+    .outcome-category {
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    /* ───────────────── Certifications ───────────────── */
+    .cert-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: .5rem;
+    }
+
+    .cert-list li {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .5rem .75rem;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      background: var(--white);
+      font-size: .9rem;
+      transition: transform .15s;
+    }
+    .cert-list li:hover { transform: translateX(3px); }
+
+    .cert-icon { color: var(--green); font-size: .9rem; }
+
+    /* ───────────────── Publications ───────────────── */
+    .pub-list { list-style: none; }
+
+    .pub-list li {
+      padding: .6rem 0;
+      border-bottom: 1px solid #d0d7de;
+      font-size: .9rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .pub-list li:last-child { border-bottom: none; }
+
+    .pub-icon { color: var(--orange); font-size: .85rem; }
+
+    /* ───────────────── Verticals ───────────────── */
+    .verticals-grid {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+    }
+
+    .vertical-tag {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .4rem .8rem;
+      border: 1px solid #d0d7de;
+      border-radius: 20px;
+      font-size: .85rem;
+      font-weight: 500;
+      background: var(--white);
+      color: var(--text);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .vertical-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .vertical-icon { font-size: .9rem; }
+
+    /* ───────────────── Why Azure GBB Modernization ───────────────── */
+    .why-box {
+      background: var(--dark);
+      color: var(--light);
+      border-radius: 8px;
+      padding: 2rem;
+      position: relative;
+      border-left: 4px solid var(--blue);
+    }
+
+    .why-box blockquote {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .why-box blockquote strong { color: var(--light); font-style: normal; }
+
+    /* ───────────────── Education ───────────────── */
+    .edu-item {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .75rem 1rem;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .edu-icon { font-size: 1.5rem; }
+
+    .edu-info h3 { font-size: .95rem; font-weight: 600; }
+    .edu-info p { font-size: .85rem; color: var(--text-secondary); }
+
+    /* ───────────────── Footer ───────────────── */
+    .footer {
+      background: var(--dark);
+      color: var(--muted);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: .85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p { margin-bottom: .25rem; }
+    .footer a { color: var(--blue); }
+
+    /* ───────────────── Responsive ───────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--dark);
+        padding: .75rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        gap: .5rem;
+      }
+      .hamburger { display: block; }
+
+      .hero { padding: 5.5rem 1.25rem 3rem; }
+
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .outcomes-table { font-size: .82rem; }
+      .outcomes-table th, .outcomes-table td { padding: .5rem .6rem; }
+    }
+
+    @media (max-width: 480px) {
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .hero-links { flex-direction: column; align-items: center; }
+    }
+
+    /* ───────────────── Print ───────────────── */
+    @media print {
+      .nav, .hamburger, .hero-actions, .badge-row, .tagline { display: none !important; }
+
+      body { background: #fff; color: #000; font-size: 11pt; }
+
+      .hero {
+        background: #fff; color: #000;
+        padding: 1rem 0 .5rem; text-align: left;
+      }
+      .hero h1 { font-size: 22pt; color: #000; }
+      .hero .subtitle, .hero .location { color: #444; }
+      .hero-links a { color: #000; border: none; padding: 0; font-size: 9pt; }
+
+      section { padding: 1rem 0; }
+      .container { max-width: 100%; padding: 0; }
+
+      .metric-card, .project-card, .theme-item, .cert-list li, .edu-item {
+        border-color: #ccc; box-shadow: none; break-inside: avoid;
+      }
+
+      .why-box { background: #f5f5f5; color: #000; border-left-color: #333; }
+      .why-box blockquote { color: #333; }
+      .why-box blockquote strong { color: #000; }
+
+      .fade-in { opacity: 1 !important; transform: none !important; }
+
+      .theme-detail { max-height: none !important; padding: 0 1rem .5rem !important; }
+
+      a { color: #000 !important; }
+      a[href]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+      .hero-links a[href]::after, .project-card a[href]::after { content: ""; }
+
+      .footer { background: #fff; color: #666; border-top: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════ Navigation ═══════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <svg height="24" viewBox="0 0 16 16" width="24" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+      Mark Franco
+    </div>
+    <button class="hamburger" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#summary">Summary</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#publications">Publications</a>
+      <a href="#why-azure-gbb">Why Azure GBB Modernization</a>
+    </div>
+  </nav>
+
+  <!-- ═══════ Hero ═══════ -->
+  <header class="hero" id="top">
+    <h1>Mark Franco</h1>
+    <p class="subtitle">Principal Solution Engineer · Microsoft Innovation Hub</p>
+    <p class="location">📍 Toronto, Ontario, Canada</p>
+
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/codecentre/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/MTCMarkFranco" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+        GitHub
+      </a>
+      <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        Medium
+      </a>
+    </div>
+
+    <div class="hero-actions">
+      <a href="Resume.pdf" class="btn btn-primary" download>
+        ⬇ Download Resume
+      </a>
+      <a href="https://github.com/MTCMarkFranco/azure-gbb-app-mod-application" class="btn btn-outline" target="_blank" rel="noopener">
+        &lt;/&gt; View Source
+      </a>
+    </div>
+
+    <div class="badge-row">
+      <img src="https://github.com/MTCMarkFranco/azure-gbb-app-mod-application/actions/workflows/validate-qualifications.yml/badge.svg" alt="Qualifications CI Badge">
+    </div>
+
+    <div class="tagline" aria-label="Enterprise AI strategist. Hands-on builder. GitHub believer.">
+      <span id="typed-text"></span><span class="cursor"></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════ Summary ═══════ -->
+    <section id="summary">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">📋</span> Professional Summary</h2>
+        <p class="section-subtitle">The short version</p>
+        <p class="summary-text">
+          Enterprise AI strategist and hands-on technical leader with <strong>19 years at Microsoft</strong> and <strong>32+ years in the technology industry</strong>, driving AI adoption, cloud platform growth, and developer productivity across Fortune 500 and public sector accounts. I build production-grade solutions, design reference architectures, and lead technical communities — all with a bias toward shipping code, not slides.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Key Metrics ═══════ -->
+    <section id="metrics">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">📊</span> Key Metrics</h2>
+        <p class="section-subtitle">By the numbers</p>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value">19</div>
+            <div class="metric-label">Years at Microsoft</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">32+</div>
+            <div class="metric-label">Years in Industry</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">127+</div>
+            <div class="metric-label">GitHub Repos</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">8+</div>
+            <div class="metric-label">Industry Verticals</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">9/9</div>
+            <div class="metric-label">Qualifications Matched</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Experience ═══════ -->
+    <section id="experience">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">💼</span> Experience</h2>
+        <p class="section-subtitle">Where the work happened</p>
+
+        <div class="experience-header">
+          <span class="exp-company">Microsoft — Innovation Hub, Microsoft Technology Center</span>
+          <span class="exp-duration">2006 – Present · 19 years</span>
+        </div>
+        <p class="exp-role">Principal Solution Engineer · Toronto, Canada</p>
+
+        <ul class="themes-list">
+          <li class="theme-item">
+            <button class="theme-toggle" aria-expanded="false" onclick="toggleTheme(this)">
+              <span>🔄 Data Platform Modernization → AI (Microsoft Fabric)</span>
+              <span class="chevron">▶</span>
+            </button>
+            <div class="theme-detail">
+              Led customers from legacy data platforms to modern, AI-ready architectures using Microsoft Fabric, enabling real-time analytics and AI-powered insights across enterprise data estates.
+            </div>
+          </li>
+          <li class="theme-item">
+            <button class="theme-toggle" aria-expanded="false" onclick="toggleTheme(this)">
+              <span>🤖 Developer Productivity &amp; GitHub Copilot Adoption</span>
+              <span class="chevron">▶</span>
+            </button>
+            <div class="theme-detail">
+              Drove GitHub Copilot adoption across enterprise development teams, demonstrating measurable productivity gains and building enablement assets used across the Americas region.
+            </div>
+          </li>
+          <li class="theme-item">
+            <button class="theme-toggle" aria-expanded="false" onclick="toggleTheme(this)">
+              <span>🧠 Agentic AI &amp; Multi-Agent Systems (Azure AI Foundry)</span>
+              <span class="chevron">▶</span>
+            </button>
+            <div class="theme-detail">
+              Pioneered multi-agent orchestration patterns using Azure AI Foundry, MCP Protocol, and Semantic Kernel. Built production-grade agentic systems handling complex enterprise workflows with tool-use and chain-of-thought reasoning.
+            </div>
+          </li>
+          <li class="theme-item">
+            <button class="theme-toggle" aria-expanded="false" onclick="toggleTheme(this)">
+              <span>⚔️ Competitive Cloud Displacement</span>
+              <span class="chevron">▶</span>
+            </button>
+            <div class="theme-detail">
+              Led strategic technical engagements resulting in competitive cloud displacement from rival platforms, converting accounts to Azure through superior architecture design and proof-of-value demonstrations.
+            </div>
+          </li>
+          <li class="theme-item">
+            <button class="theme-toggle" aria-expanded="false" onclick="toggleTheme(this)">
+              <span>📄 AI for Unstructured Data (95–99% Accuracy)</span>
+              <span class="chevron">▶</span>
+            </button>
+            <div class="theme-detail">
+              Built AI extraction pipelines for unstructured documents and schematics achieving 95–99% accuracy using Azure AI services, OpenCV, and custom ML models — deployed in production for manufacturing and insurance use cases.
+            </div>
+          </li>
+          <li class="theme-item">
+            <button class="theme-toggle" aria-expanded="false" onclick="toggleTheme(this)">
+              <span>🏛️ Public Sector &amp; Regulated Industries</span>
+              <span class="chevron">▶</span>
+            </button>
+            <div class="theme-detail">
+              Delivered secure, compliant AI solutions for government and regulated industries including financial services and healthcare, navigating sovereignty requirements, Zero-Trust architectures, and data residency constraints.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Skills ═══════ -->
+    <section id="skills">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">🛠️</span> Technical Skills</h2>
+        <p class="section-subtitle">The toolbox</p>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>AI / ML Platforms</h3>
+            <div class="skill-tags">
+              <span class="tag accent-blue">Azure AI Foundry</span>
+              <span class="tag accent-blue">Azure OpenAI</span>
+              <span class="tag accent-blue">Azure AI Search</span>
+              <span class="tag accent-blue">Azure ML</span>
+              <span class="tag accent-blue">Content Understanding Studio</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Agentic AI</h3>
+            <div class="skill-tags">
+              <span class="tag accent-purple">Multi-agent Orchestration</span>
+              <span class="tag accent-purple">MCP Protocol</span>
+              <span class="tag accent-purple">Semantic Kernel</span>
+              <span class="tag accent-purple">AutoGen</span>
+              <span class="tag accent-purple">LangChain</span>
+              <span class="tag accent-purple">LangGraph</span>
+              <span class="tag accent-purple">MS Agent Framework</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>RAG &amp; Knowledge</h3>
+            <div class="skill-tags">
+              <span class="tag accent-green">Vector Search</span>
+              <span class="tag accent-green">HNSW Indexing</span>
+              <span class="tag accent-green">Semantic Ranking</span>
+              <span class="tag accent-green">Foundry IQ</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Cloud &amp; Infrastructure</h3>
+            <div class="skill-tags">
+              <span class="tag">Azure AKS</span>
+              <span class="tag">Container Apps</span>
+              <span class="tag">Cosmos DB</span>
+              <span class="tag">Functions</span>
+              <span class="tag">Fabric</span>
+              <span class="tag">Sentinel</span>
+              <span class="tag">Bicep IaC</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Security</h3>
+            <div class="skill-tags">
+              <span class="tag accent-orange">Entra ID</span>
+              <span class="tag accent-orange">MSAL</span>
+              <span class="tag accent-orange">Managed Identity</span>
+              <span class="tag accent-orange">Passkeys</span>
+              <span class="tag accent-orange">Zero-Trust</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Dev Platforms</h3>
+            <div class="skill-tags">
+              <span class="tag accent-blue">GitHub</span>
+              <span class="tag accent-blue">GitHub Copilot</span>
+              <span class="tag accent-blue">Azure DevOps</span>
+              <span class="tag accent-blue">CI/CD</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span class="tag">C# / .NET</span>
+              <span class="tag">Python</span>
+              <span class="tag">TypeScript / JavaScript</span>
+              <span class="tag">PowerShell</span>
+              <span class="tag">Java</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+              <span class="tag accent-green">React 18</span>
+              <span class="tag accent-green">Blazor Server</span>
+              <span class="tag accent-green">Streamlit</span>
+              <span class="tag accent-green">Tailwind CSS</span>
+              <span class="tag accent-green">Vite</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Projects ═══════ -->
+    <section id="projects">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">📦</span> Notable Projects</h2>
+        <p class="section-subtitle">Open source and demos — code that ships</p>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/rules-iq" target="_blank" rel="noopener">rules-iq</a>
+            </h3>
+            <p class="project-desc">Agentic rules engine that uses AI to interpret and execute business rules dynamically.</p>
+            <div class="project-tags">
+              <span class="project-tag">C#</span>
+              <span class="project-tag">Blazor</span>
+              <span class="project-tag">Azure AI Foundry</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/schematic-iq" target="_blank" rel="noopener">schematic-iq</a>
+            </h3>
+            <p class="project-desc">AI-powered schematic extraction achieving 95–99% accuracy on complex technical diagrams.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">OpenCV</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/architecture-review-board" target="_blank" rel="noopener">architecture-review-board</a>
+            </h3>
+            <p class="project-desc">AI policy validation and Terraform generation for cloud architecture reviews.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Flask</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/agentic.search.demo" target="_blank" rel="noopener">agentic.search.demo</a>
+            </h3>
+            <p class="project-desc">Side-by-side comparison of Agentic vs. RAG search patterns.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Azure AI Search</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/python-sql-Interpreter" target="_blank" rel="noopener">python-sql-Interpreter</a>
+            </h3>
+            <p class="project-desc">Natural language to SQL translation powered by Semantic Kernel.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Semantic Kernel</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/voice-agent" target="_blank" rel="noopener">voice-agent</a>
+            </h3>
+            <p class="project-desc">Multimodal AI voice agent for real-time conversational AI.</p>
+            <div class="project-tags">
+              <span class="project-tag">C#</span>
+              <span class="project-tag">Azure Comm Services</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>
+              <span class="repo-icon">📁</span>
+              <a href="https://github.com/MTCMarkFranco/msal-passkey-force" target="_blank" rel="noopener">msal-passkey-force</a>
+            </h3>
+            <p class="project-desc">Enterprise authentication reference with MSAL and passkey enforcement.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Entra ID</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Business Outcomes ═══════ -->
+    <section id="outcomes">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">📈</span> Business Outcomes</h2>
+        <p class="section-subtitle">Impact that matters</p>
+
+        <table class="outcomes-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="outcome-category">💰 Revenue</td>
+              <td>Measurable monthly ACR through AI design wins</td>
+            </tr>
+            <tr>
+              <td class="outcome-category">⚔️ Competitive</td>
+              <td>Cloud displacement from competing platforms</td>
+            </tr>
+            <tr>
+              <td class="outcome-category">⚡ Efficiency</td>
+              <td>Up to 50% reduction in time-to-insight</td>
+            </tr>
+            <tr>
+              <td class="outcome-category">🌐 Breadth</td>
+              <td>Many engagements across 8+ industry verticals</td>
+            </tr>
+            <tr>
+              <td class="outcome-category">♻️ Assets</td>
+              <td>Reusable patterns adopted Americas-wide</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Certifications ═══════ -->
+    <section id="certifications">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">🎓</span> Certifications</h2>
+        <p class="section-subtitle">Credentials</p>
+
+        <ul class="cert-list">
+          <li><span class="cert-icon">✅</span> Azure Solutions Architect Expert</li>
+          <li><span class="cert-icon">✅</span> AZ-300</li>
+          <li><span class="cert-icon">✅</span> AZ-301</li>
+          <li><span class="cert-icon">✅</span> MCSA Cloud Platform</li>
+          <li><span class="cert-icon">✅</span> Exam 532</li>
+          <li><span class="cert-icon">✅</span> Exam 534</li>
+          <li><span class="cert-icon">✅</span> Insight Selling</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Education ═══════ -->
+    <section id="education">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">🏫</span> Education</h2>
+        <p class="section-subtitle">Foundation</p>
+        <div class="edu-item">
+          <span class="edu-icon">🎓</span>
+          <div class="edu-info">
+            <h3>Sheridan College — Software Engineering</h3>
+            <p>1994 – 1998</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Publications ═══════ -->
+    <section id="publications">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">✍️</span> Publications</h2>
+        <p class="section-subtitle">Thought leadership on Medium</p>
+
+        <ul class="pub-list">
+          <li>
+            <span class="pub-icon">📝</span>
+            <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">Supercharge GitHub Copilot with Context7</a>
+          </li>
+          <li>
+            <span class="pub-icon">📝</span>
+            <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">Build Production Grade AI Solutions</a>
+          </li>
+          <li>
+            <span class="pub-icon">📝</span>
+            <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">Leave the AI; Take the Engineering</a>
+          </li>
+          <li>
+            <span class="pub-icon">📝</span>
+            <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">Why Chat Completion Isn't Dead</a>
+          </li>
+          <li>
+            <span class="pub-icon">📝</span>
+            <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">Why Your Python Stream Breaks Behind Microsoft's APIM</a>
+          </li>
+          <li>
+            <span class="pub-icon">📝</span>
+            <a href="https://medium.com/@codecentre76" target="_blank" rel="noopener">Can a Machine Think the Same Way Twice?</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Industry Verticals ═══════ -->
+    <section id="verticals">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">🏢</span> Industry Verticals</h2>
+        <p class="section-subtitle">Cross-industry experience</p>
+
+        <div class="verticals-grid">
+          <span class="vertical-tag"><span class="vertical-icon">🏦</span> Financial Services &amp; Capital Markets</span>
+          <span class="vertical-tag"><span class="vertical-icon">🛡️</span> Insurance</span>
+          <span class="vertical-tag"><span class="vertical-icon">⚡</span> Energy &amp; Utilities</span>
+          <span class="vertical-tag"><span class="vertical-icon">🏭</span> Manufacturing &amp; Supply Chain</span>
+          <span class="vertical-tag"><span class="vertical-icon">🏛️</span> Government &amp; Public Sector</span>
+          <span class="vertical-tag"><span class="vertical-icon">✈️</span> Transportation &amp; Aviation</span>
+          <span class="vertical-tag"><span class="vertical-icon">📡</span> Telecommunications</span>
+          <span class="vertical-tag"><span class="vertical-icon">💻</span> Technology &amp; Software</span>
+          <span class="vertical-tag"><span class="vertical-icon">🤝</span> Non-Profit</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ═══════ Why Azure GBB Modernization ═══════ -->
+    <section id="why-azure-gbb">
+      <div class="container fade-in">
+        <h2 class="section-title"><span class="icon">💜</span> Why Azure GBB Modernization</h2>
+        <p class="section-subtitle">The closing argument</p>
+
+        <div class="why-box">
+          <blockquote>
+            "I've spent <strong>19 years at Microsoft</strong> and over <strong>32 years in the technology industry</strong> translating cutting-edge AI technology into enterprise business value. I've built multiple <strong>MCP server implementations</strong> — the exact protocol powering GitHub Copilot's tool ecosystem. I don't just understand the GitHub Copilot value proposition; <strong>I've lived it, built with it, and driven its adoption at scale.</strong>"
+          </blockquote>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════ Footer ═══════ -->
+  <footer class="footer">
+    <p>
+      This resume was submitted as a GitHub repo, complete with CI/CD and an MCP server.
+    </p>
+    <p>
+      Built with ❤️ and <code>git push</code>.
+    </p>
+    <p style="margin-top: .75rem;">
+      <a href="https://github.com/MTCMarkFranco/azure-gbb-app-mod-application" target="_blank" rel="noopener">&lt;/&gt; View Source on GitHub</a>
+    </p>
+  </footer>
+
+  <!-- ═══════ JavaScript ═══════ -->
+  <script>
+    /* ── Typing animation ── */
+    (function() {
+      var phrases = [
+        'Enterprise AI strategist.',
+        'Hands-on builder.',
+        'GitHub believer.',
+        '127+ repos and counting.',
+        'I ship code, not slides.'
+      ];
+      var el = document.getElementById('typed-text');
+      var phraseIdx = 0, charIdx = 0, deleting = false, pauseEnd = 0;
+
+      function tick() {
+        var now = Date.now();
+        if (now < pauseEnd) { requestAnimationFrame(tick); return; }
+
+        var phrase = phrases[phraseIdx];
+        if (!deleting) {
+          charIdx++;
+          el.textContent = phrase.substring(0, charIdx);
+          if (charIdx === phrase.length) {
+            deleting = true;
+            pauseEnd = now + 2000;
+          }
+        } else {
+          charIdx--;
+          el.textContent = phrase.substring(0, charIdx);
+          if (charIdx === 0) {
+            deleting = false;
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+          }
+        }
+        var speed = deleting ? 35 : 65;
+        setTimeout(function() { requestAnimationFrame(tick); }, speed);
+      }
+      tick();
+    })();
+
+    /* ── Scroll fade-in ── */
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.fade-in').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    /* ── Collapsible themes ── */
+    function toggleTheme(btn) {
+      var detail = btn.nextElementSibling;
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      detail.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
+
